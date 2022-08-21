@@ -9,7 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
+import java.util.Optional;
 import java.util.List;
 
 @AllArgsConstructor
@@ -30,7 +30,7 @@ public class UserController {
     }
 
     @GetMapping("/users/{userId}")
-    public User getUserById(@PathVariable Long userId){
+    public Optional<User> getUserById(@PathVariable Long userId){
         return userService.getById(userId);
     }
 

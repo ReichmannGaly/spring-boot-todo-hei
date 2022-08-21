@@ -8,14 +8,15 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
 public class UserService {
     private final UserRepository repository;
 
-    public User getById(Long userId){
-        return repository.getReferenceById(userId);
+    public Optional<User> getById(Long userId){
+        return repository.findById(userId);
     }
 
     public List<User> getAll(){

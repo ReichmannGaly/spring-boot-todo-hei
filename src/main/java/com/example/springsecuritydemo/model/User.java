@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
@@ -21,9 +23,12 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "first name cannot be blank")
+    @NotNull(message = "first name cannot be null")
     @Column(nullable = false)
     private String firstName;
 
+    @NotBlank(message = "last name cannot be blank")
     private String lastName;
 
     @Column(unique = true)
@@ -32,5 +37,6 @@ public class User implements Serializable {
     @Column(nullable = false)
     private String username;
 
+    @Column(nullable = false)
     private String password;
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 @AllArgsConstructor
 @RestController
@@ -24,7 +25,7 @@ public class PostController {
     }
 
     @GetMapping("/posts/{postId}")
-    public Post getPostById(@PathVariable Long postId){
+    public Optional<Post> getPostById(@PathVariable Long postId){
         return postService.getById(postId);
     }
 

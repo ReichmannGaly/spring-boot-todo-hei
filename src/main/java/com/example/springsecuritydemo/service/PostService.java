@@ -7,14 +7,15 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class PostService {
     private final PostRepository repository;
 
-    public Post getById(Long postId){
-        return repository.getReferenceById(postId);
+    public Optional<Post> getById(Long postId){
+        return repository.findById(postId);
     }
 
     public List<Post> getAll(){
